@@ -28,7 +28,7 @@ def sign_up(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/')
     else:
         form = CustomUserCreationForm()
     return render(request, 'signup.html', {'form':form})
