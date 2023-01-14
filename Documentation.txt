@@ -1,0 +1,17 @@
+Install python
+
+Set up virtual environment in main project folder
+
+Install Django inside virtual environment
+
+Start a project named todo and a app name mainapp
+
+Create URL paths in mainapp
+
+Add a template folder in main directory..Then create base.html to store bootstrap starter template and then extend base.html to other html file
+
+Make a custom user creation system email
+
+
+
+postgres: user- postgres, password- 12345, port-5432

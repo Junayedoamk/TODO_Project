@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}AddTodo{% endblock %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for ele in form %}
+    {{ele.label_tag}} {{ele}} {{ele.errors|striptags}} <br><br>
+    {% endfor %}
+    <input type="submit" value="ADD">
+</form>
+<a href="{% url 'todolist' %}">Back</a>
+{% endblock %}

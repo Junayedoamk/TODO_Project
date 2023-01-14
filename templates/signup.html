@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Signup{% endblock %}
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for ele in form %}
+    {{ele.label_tag}} {{ele}} {{ele.errors|striptags}} <br><br>
+    {% endfor %}
+    <input type="submit" value="Submit">
+</form>
+<p>Go to <a href="{% url 'home' %}">Home</a> page</p>
+{% endblock %}

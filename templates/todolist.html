@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %}Todo List{% endblock %}
+{% block content %}
+<p><a href="{% url 'user_logout' %}">Click here</a> to logout</p>
+<p><a href="{% url 'addtodo' %}">Click here</a> to add</p>
+<div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        {% for ele in todos %}
+        <tr>
+          <td>{{forloop.counter}}</td>
+          <td>{{ele.todo}}</td>
+          <td>
+            {% if ele.status == 'C'%}
+            Completed
+            {% elif ele.status == 'N' %}
+            Not Started
+            {%else%}
+            On Going
+            {%endif%}
+          </td>
+          <td>
+            <a href="/delete-todo/{{ele.id}}" title="Delete" class="">🗑️</a>
+            {% if ele.status == 'O'%}
+            <a href="/change-status/{{ele.id}}/C" title="Mark Completed" class="">✅</a>
+            <a href="/change-status/{{ele.id}}/N" title="Mark Not Started" class="">❌</a>
+            {% elif ele.status == 'N' %}
+            <a href="/change-status/{{ele.id}}/C" title="Mark Completed" class="">✅</a>
+            <a href="/change-status/{{ele.id}}/O" title="Mark Ongoing" class="">🕒</a>
+            {%else%}
+            <a href="/change-status/{{ele.id}}/O" title="Mark Ongoing" class="">🕒</a>
+            <a href="/change-status/{{ele.id}}/N" title="Mark Not Started" class="">❌</a>
+            {%endif%}
+          </td>
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+</div>
+{% endblock %}
