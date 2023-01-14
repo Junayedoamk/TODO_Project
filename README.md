@@ -10,3 +10,7 @@ Turn 'can login' privilege to yes for 'todoapp' user.
 Now run "py manage.py make migrations" and "py manage.py migrate" on cmd.
 Now create a super user with "py manage.py createsuperuser".
 Then "py manage.py runserver" for running the application on any search engine.
+
+http://127.0.0.1:8000/admin
+user: admin
+Pass: admin
